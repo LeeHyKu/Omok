@@ -92,7 +92,11 @@ void omout(Omok* omk)
     }
     else
     {
-        printf("\033[H\033[J");
+    #ifdef _WIN32
+        system("cls");
+    #elif defined __unix__
+        system("clear");
+    #endif
         int s = omk->siz;
         char*** o = (char***)malloc(sizeof(char **) * s);
         for (int i = 0; i < s; i++)

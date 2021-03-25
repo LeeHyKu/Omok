@@ -163,14 +163,15 @@ int omckw(Omok* omk)
         for(int j = 0; j < omk->siz; j++)
         {
             if(omk->pan[i][j] != a) continue;
-            int l = 1, d = 1, dl = 1;
+            int l = 1, d = 1, dr = 1, dl = 1;
             for(int k = 1; k < e; k++)
             {
                 if(j + k >= s || omk->pan[i][j + k] != a) l = 0;
                 if(i + k >= s || omk->pan[i + k][j] != a) d = 0;
-                if(j + k >= s || i + k >= s || omk->pan[i + k][j + k] != a) dl = 0;
+                if(j + k >= s || i + k >= s || omk->pan[i + k][j + k] != a) dr = 0;
+                if(j - k <= 0 || i + k >= s || omk->pan[i + k][j - k] != a) dl = 0;
             }
-            if(l || d || dl) return 1;
+            if(l || d || dr || dl) return 1;
         }
     }
     return 0;

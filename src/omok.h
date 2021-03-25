@@ -28,14 +28,13 @@
 typedef struct
 {
     int     siz; //panel size
-    int     end;
+    int     end; //game end criteria
     short** pan;
     Vector* ptr;
     Player* ein;
     Player* zwi;
     int     win; //0: no; 1: yes, ein is win; 2: yes, zwi is win
     int     trn;
-
 } Omok;
 
 typedef enum
